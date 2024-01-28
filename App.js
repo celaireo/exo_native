@@ -2,6 +2,7 @@ import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
 import BtnApp from './components/BtnApp';
 import Modalite from './components/Modalite';
+import HomeScreen from './screen/home.screen';
 
 
 export default function App() {
@@ -14,6 +15,7 @@ export default function App() {
                 Avec props
          </BtnApp> */}
         
+        <HomeScreen/>
       <StatusBar style="auto" />
     </View>
     </Modalite>

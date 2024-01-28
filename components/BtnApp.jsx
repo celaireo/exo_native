@@ -15,6 +15,8 @@ const BtnApp = (props) => {
 
             {props.children || "Press me sans props"}  {/* Utilisez le texte fourni ou "Press me" par défaut */}
         </Button>
+
+        
     );
 };
 
