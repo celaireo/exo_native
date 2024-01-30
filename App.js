@@ -1,32 +1,23 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
-import BtnApp from './components/BtnApp';
-import Modalite from './components/Modalite';
+// App.js
+import React from 'react';
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
+import LoginScreen from './screens/LoginScreen';
+import SignupScreen from './screens/SignupScreen';
+import DashboardScreen from './screens/DashboardScreen';
 
+const Stack = createStackNavigator();
 
-
-export default function App() {
+const App = () => {
   return (
-    <Modalite>
-    <View style={styles.container}>
-      <Text>Hello World !</Text>
-      {/* <BtnApp/> */}
-         {/* <BtnApp mode="outlined">
-                Avec props
-         </BtnApp> */}
-      
-      <StatusBar style="auto" />
-    </View>
-    </Modalite>
-    
+    <NavigationContainer>
+      <Stack.Navigator initialRouteName="Login">
+        <Stack.Screen name="Login" component={LoginScreen} />
+        <Stack.Screen name="Signup" component={SignupScreen} />
+        <Stack.Screen name="Dashboard" component={DashboardScreen} />
+      </Stack.Navigator>
+    </NavigationContainer>
   );
-}
+};
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+export default App;

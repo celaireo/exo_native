@@ -1,27 +1,29 @@
 // screens/SignupScreen.jsx
-import React, { useState } from 'react';
+import React from 'react';
 import { View, StyleSheet } from 'react-native';
 import { TextInput, Button } from 'react-native-paper';
+import CoffeeLogo from '../components/CoffeeLogo';
 
-const SignupScreen = ({ navigation }) => {
+const SignupForm = () => {
   const [nom, setNom] = useState('');
   const [prenom, setPrenom] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [confirmPassword, setConfirmPassword] = useState('');
 
-  const handleSignup = () => {
-    // Logique d'inscription
+  const handleSubmit = () => {
+    // Logique de traitement du formulaire
     console.log('Nom:', nom);
     console.log('Prénom:', prenom);
     console.log('Email:', email);
     console.log('Mot de passe:', password);
-
-    // Rediriger vers le tableau de bord (dashboard) après l'inscription
-    navigation.navigate('Dashboard');
+    console.log('Confirmation du mot de passe:', confirmPassword);
   };
 
   return (
     <View style={styles.container}>
+      <CoffeeLogo />
+
       <TextInput
         label="Nom"
         value={nom}
@@ -30,7 +32,8 @@ const SignupScreen = ({ navigation }) => {
         style={styles.input}
       />
 
-      <TextInput
+
+       <TextInput
         label="Prénom"
         value={prenom}
         onChangeText={(text) => setPrenom(text)}
@@ -55,7 +58,16 @@ const SignupScreen = ({ navigation }) => {
         style={styles.input}
       />
 
-      <Button mode="contained" onPress={handleSignup} style={styles.button}>
+      <TextInput
+        label="Confirmation du mot de passe"
+        value={confirmPassword}
+        onChangeText={(text) => setConfirmPassword(text)}
+        secureTextEntry
+        mode="outlined"
+        style={styles.input}
+      />
+
+      <Button mode="contained" onPress={handleSubmit} style={styles.button}>
         S'inscrire
       </Button>
     </View>
@@ -76,4 +88,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default SignupScreen;
+export default SignupForm;
