@@ -3,6 +3,7 @@ import { Modal, Portal, Text, Button, Provider as PaperProvider } from 'react-na
 import BtnApp from './BtnApp';
 import NameListe from './NameListe';
 
+
 const Modalite = () => {
   const [visible, setVisible] = useState(false);
 
